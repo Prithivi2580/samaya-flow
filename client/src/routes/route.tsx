@@ -4,14 +4,19 @@ import PrivateLayout from "@/layout/private-layout";
 import PublicLayout from "@/layout/public-layout";
 import Home from "@/features/home/pages/home";
 import NotFound from "@/components/shared/not-found";
+import SignUp from "@/features/auth/pages/sign-up";
+import SignIn from "@/features/auth/pages/sign-in";
+import AuthLayout from "@/features/auth/layout/auth-layout";
 
 const RoutesComponent = () => {
   return (
     <Routes>
       {/* Public Routes */}
       <Route element={<PublicLayout />}>
-        <Route path="/login" element={<div>Login</div>} />
-        <Route path="/register" element={<div>Register</div>} />
+        <Route element={<AuthLayout />}>
+          <Route path="/sign-in" element={<SignIn />} />
+          <Route path="/sign-up" element={<SignUp />} />
+        </Route>
         <Route path="/" element={<Home />} />
       </Route>
 

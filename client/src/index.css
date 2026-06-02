@@ -199,8 +199,11 @@
 }
 
 @layer components {
+  .flex-center {
+    @apply flex items-center justify-center;
+  }
   .btn {
-    @apply !px-6 !py-4 !cursor-pointer !text-xl !rounded-lg !bg-primary !text-primary-foreground !font-medium hover:!bg-primary/90 !transition-colors;
+    @apply px-6! py-4! cursor-pointer! text-xl! rounded-lg! bg-primary! text-primary-foreground! font-medium! hover:bg-primary/90! transition-colors!;
   }
   .header {
     @apply w-full relative flex items-center justify-between px-8 py-2;
@@ -216,8 +219,32 @@
       }
     }
   }
-  section {
+  .section {
     @apply px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto;
+  }
+  .auth {
+    @apply w-full h-dvh flex;
+
+    .auth-left {
+      @apply relative flex-1 p-4;
+
+      .auth-gradient {
+        @apply absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.34)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.34)_1px,transparent_1px),radial-gradient(circle_at_22%_24%,rgba(255,255,255,0.32),transparent_0_18%),radial-gradient(circle_at_78%_74%,rgba(255,255,255,0.18),transparent_0_22%)] bg-size-[24px_24px,24px_24px,100%_100%,100%_100%] opacity-90 mix-blend-screen pointer-events-none;
+      }
+      .gradient-1 {
+        @apply absolute left-8 top-14 h-44 w-44 rounded-full bg-white/18 blur-3xl;
+      }
+      .gradient-2 {
+        @apply absolute bottom-12 right-12 h-56 w-56 rounded-full bg-white/10 blur-3xl;
+      }
+
+      .auth-container {
+        @apply w-full h-full relative overflow-hidden rounded-[15px] bg-primary/90 shadow-[0_24px_80px_rgba(15,23,42,0.16)] backdrop-blur-xl;
+      }
+    }
+    .auth-right {
+      @apply flex-1;
+    }
   }
 }
 
