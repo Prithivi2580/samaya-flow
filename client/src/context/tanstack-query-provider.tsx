@@ -1,3 +1,4 @@
+import { type ReactNode } from "react";
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 
 const queryClient = new QueryClient();
@@ -5,7 +6,7 @@ const queryClient = new QueryClient();
 export default function TanstackQueryProvider({
   children,
 }: {
-  children: React.ReactNode;
+  children: ReactNode;
 }) {
   return (
     <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>

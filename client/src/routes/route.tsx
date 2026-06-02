@@ -3,6 +3,7 @@ import ProtectedRoute from "./protected-route";
 import PrivateLayout from "@/layout/private-layout";
 import PublicLayout from "@/layout/public-layout";
 import Home from "@/features/home/pages/home";
+import NotFound from "@/components/shared/not-found";
 
 const RoutesComponent = () => {
   return (
@@ -20,6 +21,7 @@ const RoutesComponent = () => {
           <Route path="/dashboard" element={<div>Dashboard</div>} />
         </Route>
       </Route>
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 };
