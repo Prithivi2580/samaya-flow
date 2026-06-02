@@ -5,7 +5,7 @@
 
 @custom-variant dark (&:is(.dark *));
 
-root {
+:root {
   --font-heading: var(--font-sans);
   --font-sans: "Outfit Variable", sans-serif;
   --background: oklch(0.994 0 0);
@@ -196,4 +196,30 @@ root {
     @apply bg-background text-foreground;
     letter-spacing: var(--tracking-normal);
   }
+}
+
+@layer components {
+  .btn {
+    @apply !px-6 !py-4 !cursor-pointer !text-xl !rounded-lg !bg-primary !text-primary-foreground !font-medium hover:!bg-primary/90 !transition-colors;
+  }
+  .header {
+    @apply w-full relative flex items-center justify-between px-8 py-2;
+
+    div {
+      @apply flex items-center justify-center gap-1 text-2xl font-bold;
+    }
+    nav {
+      @apply hidden md:flex items-center justify-center gap-6 border rounded-lg px-4 py-2;
+
+      a {
+        @apply text-xl font-medium;
+      }
+    }
+  }
+  section {
+    @apply px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto;
+  }
+}
+
+@layer utilities {
 }
