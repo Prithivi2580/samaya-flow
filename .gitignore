@@ -47,4 +47,4 @@ coverage
 
 # Finder (MacOS) folder config
 .DS_Store
-generated
+server/**/generated/prisma/
