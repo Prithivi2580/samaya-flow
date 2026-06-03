@@ -8,12 +8,16 @@ import {
   FieldLabel,
 } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
+import { authClient } from "@/lib/auth-client.lib";
 import { signUpSchema } from "../validator/auth";
 import { Eye, EyeOff } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "sonner";
 
 export default function SignUp() {
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
+
   const form = useForm({
     defaultValues: {
       name: "",
@@ -23,7 +27,25 @@ export default function SignUp() {
     validators: {
       onSubmit: signUpSchema,
     },
-    onSubmit: async () => {},
+    onSubmit: async ({ value }) => {
+      console.log("Submitting form with values:", value);
+      await authClient.signUp.email(
+        {
+          name: value.name,
+          email: value.email,
+          password: value.password,
+        },
+        {
+          onSuccess: () => {
+            navigate("/dashboard");
+          },
+          onError: (ctx) => {
+            console.error("Sign-up error:", ctx.error);
+            toast.error(ctx.error.message);
+          },
+        },
+      );
+    },
   });
 
   return (
@@ -38,17 +60,35 @@ export default function SignUp() {
       </div>
 
       <div className="space-y-3 mb-4">
-        <Button className="w-full" variant="custom">
+        <Button
+          className="w-full"
+          variant="custom"
+          onClick={() =>
+            authClient.signIn.social({
+              provider: "google",
+              callbackURL: "/dashboard",
+            })
+          }
+        >
           <span className="mr-2 size-8">
             <img src="/src/assets/google.svg" alt="Google" />
           </span>
           Continue with Google
         </Button>
-        <Button className="w-full" variant="custom">
+        <Button
+          className="w-full"
+          variant="custom"
+          onClick={() =>
+            authClient.signIn.social({
+              provider: "github",
+              callbackURL: "/dashboard",
+            })
+          }
+        >
           <span className="mr-2 size-8">
-            <img src="/src/assets/microsoft.svg" alt="Microsoft" />
+            <img src="/src/assets/github.svg" alt="Github" />
           </span>
-          Continue with Microsoft
+          Continue with Github
         </Button>
 
         <div className="flex items-center gap-3">

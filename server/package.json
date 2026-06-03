@@ -17,6 +17,7 @@
   "devDependencies": {
     "@biomejs/biome": "2.4.16",
     "@types/bun": "latest",
+    "@types/cors": "^2.8.19",
     "@types/express": "^5.0.6",
     "prisma": "^7.8.0"
   },
@@ -27,6 +28,7 @@
     "@prisma/adapter-neon": "^7.8.0",
     "@prisma/client": "^7.8.0",
     "better-auth": "^1.6.13",
+    "cors": "^2.8.6",
     "dotenv": "^17.4.2",
     "express": "^5.2.1"
   }

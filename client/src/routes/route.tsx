@@ -7,6 +7,7 @@ import NotFound from "@/components/shared/not-found";
 import SignUp from "@/features/auth/pages/sign-up";
 import SignIn from "@/features/auth/pages/sign-in";
 import AuthLayout from "@/features/auth/layout/auth-layout";
+import Dashboard from "@/features/dashboard/pages/dashboard";
 
 const RoutesComponent = () => {
   return (
@@ -23,7 +24,7 @@ const RoutesComponent = () => {
       {/* Protected Routes */}
       <Route element={<ProtectedRoute />}>
         <Route element={<PrivateLayout />}>
-          <Route path="/dashboard" element={<div>Dashboard</div>} />
+          <Route path="/dashboard" element={<Dashboard />} />
         </Route>
       </Route>
       <Route path="*" element={<NotFound />} />

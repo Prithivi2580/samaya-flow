@@ -8,12 +8,16 @@ import {
   FieldLabel,
 } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
+import { authClient } from "@/lib/auth-client.lib";
 import { signInSchema } from "../validator/auth";
 import { Eye, EyeOff } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "sonner";
 
 export default function SignIn() {
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
+
   const form = useForm({
     defaultValues: {
       email: "",
@@ -22,7 +26,22 @@ export default function SignIn() {
     validators: {
       onSubmit: signInSchema,
     },
-    onSubmit: async () => {},
+    onSubmit: async ({ value }) => {
+      await authClient.signIn.email(
+        {
+          email: value.email,
+          password: value.password,
+        },
+        {
+          onSuccess: () => {
+            navigate("/dashboard");
+          },
+          onError: (ctx) => {
+            toast.error(ctx.error.message);
+          },
+        },
+      );
+    },
   });
   return (
     <div className="w-full sm:max-w-md">
@@ -34,17 +53,35 @@ export default function SignIn() {
       </div>
 
       <div className="space-y-3 mb-4">
-        <Button className="w-full" variant="custom">
+        <Button
+          className="w-full"
+          variant="custom"
+          onClick={() =>
+            authClient.signIn.social({
+              provider: "google",
+              callbackURL: "/dashboard",
+            })
+          }
+        >
           <span className="mr-2 size-8">
             <img src="/src/assets/google.svg" alt="Google" />
           </span>
           Continue with Google
         </Button>
-        <Button className="w-full" variant="custom">
+        <Button
+          className="w-full"
+          variant="custom"
+          onClick={() =>
+            authClient.signIn.social({
+              provider: "github",
+              callbackURL: "/dashboard",
+            })
+          }
+        >
           <span className="mr-2 size-8">
-            <img src="/src/assets/microsoft.svg" alt="Microsoft" />
+            <img src="/src/assets/github.svg" alt="Github" />
           </span>
-          Continue with Microsoft
+          Continue with Github
         </Button>
 
         <div className="flex items-center gap-3">
