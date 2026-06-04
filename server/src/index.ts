@@ -2,16 +2,14 @@ import "dotenv/config";
 import express, { type Express } from "express";
 import { toNodeHandler } from "better-auth/node";
 import cors from "cors";
-import { auth } from "./lib/auth.lib";
+import { auth } from "./lib/auth";
 
 const app: Express = express();
-
-const CLIENT_URL = process.env.CLIENT_URL ?? "http://localhost:5173";
 
 // CORS FIRST!
 app.use(
   cors({
-    origin: CLIENT_URL,
+    origin: process.env.FRONTEND_URL!,
     credentials: true,
   }),
 );

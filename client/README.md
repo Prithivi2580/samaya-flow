@@ -58,4 +58,25 @@ import { Button } from "@/components/ui/button";
     </Card>
   </div>
 </main>;
+
+
+    <div
+        className="
+      absolute left-[-250px] top-0
+      h-[600px] w-[800px]
+      rounded-full
+      bg-[radial-gradient(circle,#1e3a8a_0%,#3b82f6_35%,transparent_75%)]
+      blur-[140px]
+    "
+      />
+
+      <div
+        className="
+      absolute right-[-250px] top-32
+      h-[600px] w-[800px]
+      rounded-full
+      bg-[radial-gradient(circle,#581c87_0%,#a855f7_35%,transparent_75%)]
+      blur-[140px]
+    "
+      />
 ```
