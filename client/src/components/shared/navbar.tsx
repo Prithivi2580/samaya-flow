@@ -7,7 +7,7 @@ export default function Navbar() {
   return (
     <header className="header">
       <div>
-        <Logo />
+        <Logo className="logo" />
         <p>Samaya Flow</p>
       </div>
       <nav>

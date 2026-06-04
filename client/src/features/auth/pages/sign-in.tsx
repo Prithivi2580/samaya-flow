@@ -35,9 +35,13 @@ export default function SignIn() {
         {
           onSuccess: () => {
             navigate("/dashboard");
+            toast.success(
+              "Signed in successfully! Redirecting to dashboard...",
+            );
           },
           onError: (ctx) => {
             toast.error(ctx.error.message);
+            console.error("Sign-in error:", ctx.error);
           },
         },
       );

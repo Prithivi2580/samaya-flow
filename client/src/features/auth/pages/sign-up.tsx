@@ -37,11 +37,12 @@ export default function SignUp() {
         },
         {
           onSuccess: () => {
-            navigate("/dashboard");
+            navigate("/sign-in");
+            toast.success("Account created successfully! Please sign in.");
           },
           onError: (ctx) => {
-            console.error("Sign-up error:", ctx.error);
             toast.error(ctx.error.message);
+            console.error("Sign-up error:", ctx.error);
           },
         },
       );
@@ -63,12 +64,12 @@ export default function SignUp() {
         <Button
           className="w-full"
           variant="custom"
-          onClick={() =>
+          onClick={() => {
             authClient.signIn.social({
               provider: "google",
-              callbackURL: "/dashboard",
-            })
-          }
+              callbackURL: `${import.meta.env.VITE_FRONTEND_URL}/dashboard`,
+            });
+          }}
         >
           <span className="mr-2 size-8">
             <img src="/src/assets/google.svg" alt="Google" />
@@ -81,7 +82,7 @@ export default function SignUp() {
           onClick={() =>
             authClient.signIn.social({
               provider: "github",
-              callbackURL: "/dashboard",
+              callbackURL: `${import.meta.env.VITE_FRONTEND_URL}/dashboard`,
             })
           }
         >
