@@ -196,6 +196,12 @@
     @apply bg-background text-foreground;
     letter-spacing: var(--tracking-normal);
   }
+  h1 {
+    @apply tracking-tight text-3xl text-center sm:text-4xl md:text-6xl lg:text-7xl font-extrabold;
+  }
+  p {
+    @apply w-full md:w-[65%]  text-xs sm:text-sm text-muted-foreground/60 text-center md:text-xl;
+  }
 }
 
 @layer components {
@@ -209,7 +215,7 @@
     @apply px-2! py-2! sm:px-3! sm:py-3! md:px-4! md:py-3! lg:px-5! lg:py-5! text-sm! sm:text-base! md:text-lg! lg:text-xl! cursor-pointer!  rounded-lg! bg-primary! text-primary-foreground! font-medium! hover:bg-primary/90! transition-colors!;
   }
   .header {
-    @apply w-full relative flex items-center justify-between px-8 py-2;
+    @apply w-full relative flex items-center justify-between px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto py-4;
 
     div {
       @apply flex items-center justify-center gap-1 text-sm sm:text-base md:text-lg lg:text-xl  font-bold;
@@ -227,7 +233,7 @@
     }
   }
   .section {
-    @apply px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto;
+    @apply px-4 sm:px-6 md:px-8 py-6 sm:py-8 md:py-10 lg:py-20 max-w-7xl mx-auto;
   }
   .auth {
     @apply w-full h-dvh flex;
@@ -263,7 +269,7 @@
       @apply tracking-tight text-3xl text-center sm:text-6xl md:text-7xl lg:text-8xl font-extrabold;
     }
     p {
-      @apply w-full md:w-[65%]  text-xs sm:text-sm text-muted-foreground/60 text-center md:text-2xl;
+      @apply w-full md:w-[65%]  text-xs sm:text-sm text-muted-foreground/60 text-center md:text-xl;
     }
     h4 {
       @apply px-2 py-2 md:px-4 md:py-3 lg:px-3 lg:py-4 border text-xs sm:text-base text-muted-foreground/60 font-medium tracking-wide uppercase rounded-lg md:rounded-full;
@@ -271,6 +277,34 @@
       span {
         @apply px-2 py-1 md:px-4 md:py-3 lg:px-4 lg:py-3 bg-linear-to-b from-primary to-secondary  font-bold text-white rounded-lg md:rounded-full;
       }
+    }
+  }
+  .feature-container {
+    @apply w-full mt-4 md:mt-10 grid grid-cols-1 gap-4 md:gap-6 sm:grid-cols-2 md:grid-cols-3;
+
+    .title {
+      @apply text-base! md:text-xl!;
+    }
+    .description {
+      @apply text-sm! md:text-base! text-muted-foreground/80!;
+    }
+  }
+  .how_it_works-container {
+    @apply grid grid-cols-1 md:grid-cols-4 mt-6 md:mt-10 gap-10 md:gap-4;
+
+    .items {
+      @apply flex items-center justify-center flex-col gap-2;
+    }
+    .items h2 {
+      @apply text-base! md:text-xl! font-semibold text-center;
+    }
+
+    .items p {
+      @apply w-[90%] text-sm! md:text-base! text-muted-foreground/80! text-center;
+    }
+
+    .number {
+      @apply size-8 md:size-10 lg:size-12 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold;
     }
   }
 }
