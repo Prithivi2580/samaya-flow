@@ -2,6 +2,8 @@ import type {
   FeaturesCardProps,
   HowItWorksProps,
   NavbarProps,
+  OnboardingStep1Props,
+  OnboardingStep3Props,
   PricingCardProps,
   TestimonialProps,
 } from "@/types";
@@ -12,6 +14,12 @@ import {
   BellRing,
   Users,
   Workflow,
+  TrendingUp,
+  UserSearch,
+  Speech,
+  GraduationCap,
+  PersonStanding,
+  ToggleRight,
 } from "lucide-react";
 
 export const NAVBAR_LINKS: NavbarProps[] = [
@@ -175,5 +183,83 @@ export const TESTIMONIALS: TestimonialProps[] = [
     company: "GrowthHub",
     testimonial:
       "Simple, reliable, and incredibly intuitive. Our clients love the booking experience and our team loves the automation.",
+  },
+];
+
+export const ONBOARDING_STEP_1: OnboardingStep1Props[] = [
+  {
+    id: 1,
+    icon: TrendingUp,
+    title: "Sales",
+    description: "Closing deals and demos",
+  },
+  {
+    id: 2,
+    icon: UserSearch,
+    title: "Recruiting",
+    description: "Interviewing candidates",
+  },
+  {
+    id: 3,
+    icon: Speech,
+    title: "Consulting",
+    description: "Client meetings & advisory",
+  },
+  {
+    id: 4,
+    icon: GraduationCap,
+    title: "Education",
+    description: "Office hours and tutoring",
+  },
+  {
+    id: 5,
+    icon: PersonStanding,
+    title: "Personal",
+    description: "Catching up with friends",
+  },
+];
+
+export const ONBOARDING_STEP_3: OnboardingStep3Props[] = [
+  {
+    id: 1,
+    icon: ToggleRight,
+    date: "Monday",
+    time: ["9:00 AM", "10:00 AM"],
+  },
+  {
+    id: 2,
+    icon: ToggleRight,
+    date: "Tuesday",
+    time: ["1:00 PM", "2:00 PM"],
+  },
+  {
+    id: 3,
+    icon: ToggleRight,
+    date: "Wednesday",
+    time: ["11:00 AM", "12:00 PM"],
+  },
+  {
+    id: 4,
+    icon: ToggleRight,
+    date: "Thursday",
+    time: ["3:00 PM", "4:00 PM"],
+  },
+  {
+    id: 5,
+    icon: ToggleRight,
+    date: "Friday",
+    time: ["10:00 AM", "11:00 AM"],
+  },
+  {
+    id: 6,
+    icon: ToggleRight,
+    date: "Saturday",
+    time: ["12:00 PM", "1:00 PM"],
+  },
+  {
+    id: 7,
+    icon: ToggleRight,
+    date: "Sunday",
+    time: ["2:00 PM", "3:00 PM"],
   },
 ];

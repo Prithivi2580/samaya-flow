@@ -14,5 +14,12 @@ export default function ProtectedRoute() {
     return <Navigate to="/signin" state={{ from: location }} replace />;
   }
 
+  // const user = session.user;
+
+  // // 👉 onboarding check
+  // if (!user.onboardingCompleted) {
+  //   return <Navigate to="/onboarding" replace />;
+  // }
+
   return <Outlet />;
 }

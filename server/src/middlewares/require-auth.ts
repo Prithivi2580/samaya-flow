@@ -12,11 +12,21 @@ export async function requireAuth(
   });
 
   if (!session) {
-    throw new Error("Unauthorized");
+    return res.status(401).json({ message: "Unauthorized" });
   }
 
-  (req as any).user = session.user;
+  const user = session.user;
+
+  (req as any).user = user;
   (req as any).session = session;
+
+  // OPTIONAL: onboarding guard (only if you want strict backend enforcement)
+  // if (!user.onboardingCompleted) {
+  //   return res.status(403).json({
+  //     message: "Onboarding required",
+  //     redirect: "/onboarding",
+  //   });
+  // }
 
   next();
 }

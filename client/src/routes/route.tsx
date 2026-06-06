@@ -8,6 +8,7 @@ import SignUp from "@/features/auth/pages/sign-up";
 import SignIn from "@/features/auth/pages/sign-in";
 import AuthLayout from "@/features/auth/layout/auth-layout";
 import Dashboard from "@/features/dashboard/pages/dashboard";
+import Onboarding from "@/features/onboarding/pages/onboarding";
 
 const RoutesComponent = () => {
   return (
@@ -24,6 +25,7 @@ const RoutesComponent = () => {
       {/* Protected Routes */}
       <Route element={<ProtectedRoute />}>
         <Route element={<PrivateLayout />}>
+          <Route path="/onboarding" element={<Onboarding />} />
           <Route path="/dashboard" element={<Dashboard />} />
         </Route>
       </Route>
